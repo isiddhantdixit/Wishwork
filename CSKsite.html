@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chennai Super Kings • Fan Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-50 antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-30 border-b border-yellow-500/20 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl bg-gradient-to-tr from-yellow-400 to-orange-500 flex items-center justify-center text-slate-950 font-extrabold text-lg">
+          CSK
+        </div>
+        <div>
+          <p class="text-sm font-semibold tracking-wide text-yellow-400">Chennai Super Kings</p>
+          <p class="text-xs text-slate-400 uppercase tracking-[0.18em]">Fan Page</p>
+        </div>
+      </div>
+      <div class="hidden gap-6 text-sm font-medium text-slate-200 md:flex">
+        <a href="#about" class="hover:text-yellow-400 transition">About</a>
+        <a href="#trophies" class="hover:text-yellow-400 transition">Trophies</a>
+        <a href="#legends" class="hover:text-yellow-400 transition">Legends</a>
+        <a href="#facts" class="hover:text-yellow-400 transition">Quick Facts</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative overflow-hidden border-b border-yellow-500/10">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(250,204,21,0.18),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(248,250,252,0.10),_transparent_55%)]"></div>
+
+    <div class="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:items-center lg:py-16">
+      <div class="flex-1 space-y-6">
+        <p class="inline-flex items-center rounded-full border border-yellow-400/40 bg-yellow-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-300">
+          #WhistlePodu Army
+        </p>
+        <h1 class="text-3xl font-black leading-tight text-slate-50 sm:text-4xl lg:text-5xl">
+          Chennai Super Kings
+          <span class="block text-yellow-300">The Pride of Chennai</span>
+        </h1>
+        <p class="max-w-xl text-sm text-slate-300 sm:text-base">
+          A tribute to one of the most successful IPL franchises in history — their journey, trophies,
+          and the legends who wore the yellow jersey with pride.
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#trophies"
+             class="rounded-2xl bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-yellow-500/40 hover:bg-yellow-300 transition">
+            View Trophy Cabinet
+          </a>
+          <a href="#legends"
+             class="rounded-2xl border border-slate-600/80 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-yellow-400 hover:text-yellow-300 transition">
+            Meet the Legends
+          </a>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-4 text-xs text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-green-400"></span>
+            Active in IPL since 2008
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-yellow-300"></span>
+            5× IPL Champions • 2× CLT20 Champions
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <div class="mx-auto max-w-sm rounded-3xl border border-yellow-400/40 bg-gradient-to-br from-slate-900 via-slate-950 to-yellow-900/40 p-5 shadow-2xl shadow-yellow-500/30">
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-yellow-400/30 bg-slate-900 flex items-center justify-center">
+            <div class="text-center px-4">
+              <p class="text-xs font-semibold tracking-[0.25em] uppercase text-yellow-400 mb-2">
+                M.A. Chidambaram Stadium
+              </p>
+              <p class="text-lg font-bold text-slate-50">
+                Home of the Super Kings
+              </p>
+              <p class="mt-2 text-xs text-slate-300">
+                Where the sea of yellow roars, and “Dhoni! Dhoni!” echoes under the Chennai sky.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="rounded-xl bg-slate-900/60 px-2 py-3">
+              <p class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">IPL Titles</p>
+              <p class="text-lg font-extrabold text-yellow-300">5</p>
+              <p class="text-[0.65rem] text-slate-400">2010 • 2011 • 2018 • 2021 • 2023</p>
+            </div>
+            <div class="rounded-xl bg-slate-900/60 px-2 py-3">
+              <p class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">CLT20</p>
+              <p class="text-lg font-extrabold text-yellow-300">2</p>
+              <p class="text-[0.65rem] text-slate-400">2010 • 2014</p>
+            </div>
+            <div class="rounded-xl bg-slate-900/60 px-2 py-3">
+              <p class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-400">Playoffs</p>
+              <p class="text-lg font-extrabold text-yellow-300">12</p>
+              <p class="text-[0.65rem] text-slate-400">Most in IPL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="border-b border-yellow-500/10">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <div class="grid gap-10 md:grid-cols-[1.4fr,1fr] md:items-start">
+        <div>
+          <h2 class="text-2xl font-bold text-yellow-300 md:text-3xl">
+            About the Franchise
+          </h2>
+          <p class="mt-3 text-sm text-slate-300 md:text-base">
+            The <span class="font-semibold text-yellow-200">Chennai Super Kings (CSK)</span> are a professional
+            T20 cricket franchise based in Chennai, Tamil Nadu. They were one of the original eight teams when the
+            Indian Premier League (IPL) started in 2008. CSK play their home games at the iconic
+            <span class="font-medium text-slate-100">M.A. Chidambaram Stadium</span>, also known as Chepauk.
+          </p>
+          <p class="mt-3 text-sm text-slate-300 md:text-base">
+            Over the years, CSK have built a reputation for consistency, calmness under pressure, and strong
+            team culture. With multiple trophies and legendary players, the franchise has become a symbol of
+            loyalty and passion for fans across the world.
+          </p>
+        </div>
+        <div class="space-y-3 rounded-2xl border border-slate-700 bg-slate-900/70 p-4 text-sm">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+            Franchise Snapshot
+          </h3>
+          <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="space-y-1">
+              <p class="text-slate-400">Founded</p>
+              <p class="font-medium text-slate-100">2008</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-slate-400">City</p>
+              <p class="font-medium text-slate-100">Chennai, Tamil Nadu</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-slate-400">Home Ground</p>
+              <p class="font-medium text-slate-100">M.A. Chidambaram Stadium</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-slate-400">Owner</p>
+              <p class="font-medium text-slate-100">Chennai Super Kings Cricket Ltd.</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-slate-400">Iconic Captain</p>
+              <p class="font-medium text-slate-100">MS Dhoni</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-slate-400">Coach</p>
+              <p class="font-medium text-slate-100">Stephen Fleming</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TROPHIES SECTION -->
+  <section id="trophies" class="border-b border-yellow-500/10 bg-slate-900/40">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-yellow-300 md:text-3xl">
+            Trophy Cabinet
+          </h2>
+          <p class="mt-2 text-sm text-slate-300 md:text-base">
+            CSK are among the most successful IPL sides, with multiple titles and finals appearances.
+          </p>
+        </div>
+        <div class="text-xs text-slate-400">
+          Updated till: IPL 2025
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-[1.4fr,1fr]">
+        <div class="space-y-4 rounded-2xl border border-yellow-500/30 bg-slate-950/80 p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-300">
+            Indian Premier League (IPL)
+          </h3>
+          <p class="text-sm text-slate-300">
+            <span class="font-semibold text-yellow-200">5× Champions</span>:
+            2010, 2011, 2018, 2021, 2023
+          </p>
+          <div class="grid gap-3 sm:grid-cols-5 text-xs">
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2010</p>
+              <p class="text-[0.7rem] text-slate-300">First IPL title for CSK</p>
+            </div>
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2011</p>
+              <p class="text-[0.7rem] text-slate-300">Back-to-back champions</p>
+            </div>
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2018</p>
+              <p class="text-[0.7rem] text-slate-300">Comeback champions</p>
+            </div>
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2021</p>
+              <p class="text-[0.7rem] text-slate-300">Fourth IPL crown</p>
+            </div>
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2023</p>
+              <p class="text-[0.7rem] text-slate-300">Fifth title in style</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4 rounded-2xl border border-slate-700 bg-slate-950/80 p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+            Champions League T20
+          </h3>
+          <p class="text-sm text-slate-300">
+            <span class="font-semibold text-yellow-200">2× Champions</span>:
+            2010, 2014
+          </p>
+          <div class="grid gap-3 text-xs sm:grid-cols-2">
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2010</p>
+              <p class="text-[0.7rem] text-slate-300">Double delight – IPL + CLT20</p>
+            </div>
+            <div class="rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2">
+              <p class="font-semibold text-yellow-200">2014</p>
+              <p class="text-[0.7rem] text-slate-300">Second CLT20 title</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 rounded-2xl border border-slate-700 bg-slate-950/80 p-4 text-xs text-slate-300">
+        <p>
+          CSK have also reached the playoffs in most of the seasons they’ve played, showing remarkable consistency
+          compared to other IPL teams.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGENDS SECTION -->
+  <section id="legends" class="border-b border-yellow-500/10">
+    <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-yellow-300 md:text-3xl">
+            Legends of CSK
+          </h2>
+          <p class="mt-2 text-sm text-slate-300 md:text-base">
+            Players who defined an era and made the whistle blow louder.
+          </p>
+        </div>
+        <p class="text-xs text-slate-400 max-w-xs">
+          You can add or remove players from this list anytime to keep your fan page updated.
+        </p>
+      </div>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Dhoni -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">MS Dhoni</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              Captain Cool
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            The heartbeat of CSK. Iconic captain, finisher, and mastermind behind most of CSK’s title wins.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Wicketkeeper-batter</li>
+            <li>• Led CSK to multiple IPL & CLT20 titles</li>
+            <li>• Symbol of calmness under pressure</li>
+          </ul>
+        </article>
+
+        <!-- Raina -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">Suresh Raina</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              Mr. IPL
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            One of CSK’s highest run scorers and a key middle-order pillar in big matches.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Left-handed top-order batter</li>
+            <li>• Big-match performer for CSK</li>
+            <li>• Electric fielder in the inner circle</li>
+          </ul>
+        </article>
+
+        <!-- Jadeja -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">Ravindra Jadeja</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              Sir Jadeja
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            Match-winning all-rounder who has delivered with bat, ball, and in the field for CSK.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Left-arm spin + explosive batting</li>
+            <li>• One of CSK’s best fielders</li>
+            <li>• Player-of-the-match specialist</li>
+          </ul>
+        </article>
+
+        <!-- Bravo -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">Dwayne Bravo</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              DJ Bravo
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            CSK’s death-overs specialist and charismatic all-rounder with crucial wickets and handy runs.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Right-arm medium pace</li>
+            <li>• Purple Cap winner in multiple seasons</li>
+            <li>• Crowd favourite and entertainer</li>
+          </ul>
+        </article>
+
+        <!-- Ashwin -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">Ravichandran Ashwin</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              Off-spin wizard
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            Clever off-spinner who played a big role in CSK’s early title runs with the new ball.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Off-spinner with variations</li>
+            <li>• Bowled in powerplays for CSK</li>
+            <li>• Key member of early CSK dominance</li>
+          </ul>
+        </article>
+
+        <!-- Hussey -->
+        <article class="group rounded-2xl border border-slate-700 bg-slate-950/80 p-4 hover:border-yellow-400/70 hover:bg-slate-900 transition">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-lg font-semibold text-slate-50">Michael Hussey</h3>
+            <span class="rounded-full bg-yellow-400/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-yellow-300">
+              Mr. Cricket
+            </span>
+          </div>
+          <p class="mt-2 text-xs text-slate-300">
+            Reliable opener who gave CSK solid starts and anchored chases with his experience.
+          </p>
+          <ul class="mt-3 text-[0.7rem] text-slate-400 space-y-1">
+            <li>• Top-order opener</li>
+            <li>• Orange Cap winner for CSK</li>
+            <li>• Known for consistency and class</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS SECTION -->
+  <section id="facts" class="pb-10 pt-8">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-xl font-bold text-yellow-300 md:text-2xl">
+        Quick Facts for Fans
+      </h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-3 text-xs sm:text-sm">
+        <div class="rounded-2xl border border-slate-700 bg-slate-950/80 p-4">
+          <p class="text-slate-400">Team Identity</p>
+          <ul class="mt-2 space-y-1 text-slate-200">
+            <li>• Jersey: Bright yellow</li>
+            <li>• Nickname: Men in Yellow</li>
+            <li>• Motto: Whistle Podu</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-700 bg-slate-950/80 p-4">
+          <p class="text-slate-400">Rivalries</p>
+          <ul class="mt-2 space-y-1 text-slate-200">
+            <li>• Biggest rivalry: Mumbai Indians</li>
+            <li>• High-intensity games vs RCB & KKR</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-700 bg-slate-950/80 p-4">
+          <p class="text-slate-400">Why Fans Love CSK</p>
+          <ul class="mt-2 space-y-1 text-slate-200">
+            <li>• Stable core team</li>
+            <li>• Calm captaincy and clutch performances</li>
+            <li>• Family-like culture in the squad</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-6 text-[0.7rem] text-slate-500">
+        This is a personal fan-made page and not an official website of Chennai Super Kings.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
