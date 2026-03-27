@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BunkMaster Ultra - Smart Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #6366f1;
+        }
+
+        .dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+        }
+
+        .light {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .subject-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        input[type=range] {
+            accent-color: var(--accent);
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <nav class="sticky top-0 z-50 glass border-b px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="app.showDashboard()">
+            <div class="bg-indigo-600 p-2 rounded-lg text-white">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">BunkMaster <span class="text-indigo-600">Ultra</span></span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button onclick="app.toggleTheme()"
+                class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                <i id="theme-icon" class="fas fa-moon"></i>
+            </button>
+            <button onclick="app.showAddSubject()"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl font-medium transition shadow-lg shadow-indigo-500/30">
+                + New Subject
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6">
+        <div id="dashboard-view" class="space-y-8">
+            <header class="animate-slide-up">
+                <h1 class="text-4xl font-black mb-2">My Attendance</h1>
+                <p class="opacity-60">Strategic planning for the modern student.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up" style="animation-delay: 0.1s">
+                <div class="glass p-6 rounded-3xl flex items-center gap-4">
+                    <div
+                        class="h-12 w-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider font-bold opacity-50">Global Avg</p>
+                        <h2 id="global-avg" class="text-2xl font-black">0%</h2>
+                    </div>
+                </div>
+                <div class="glass p-6 rounded-3xl flex items-center gap-4 border-b-4 border-emerald-500">
+                    <div
+                        class="h-12 w-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider font-bold opacity-50">Total Safe Bunks</p>
+                        <h2 id="total-safe-bunks" class="text-2xl font-black text-emerald-500">0</h2>
+                    </div>
+                </div>
+                <div id="critical-card" class="glass p-6 rounded-3xl flex items-center gap-4">
+                    <div
+                        class="h-12 w-12 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center text-rose-600">
+                        <i class="fas fa-skull"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider font-bold opacity-50">Critical Subs</p>
+                        <h2 id="critical-count" class="text-2xl font-black">0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+        </div>
+
+        <div id="detail-view" class="hidden animate-slide-up max-w-4xl mx-auto space-y-6">
+            <button onclick="app.showDashboard()"
+                class="opacity-60 hover:opacity-100 flex items-center gap-2 transition">
+                <i class="fas fa-chevron-left"></i> Back to Dashboard
+            </button>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                <div class="lg:col-span-3 glass p-8 rounded-[2.5rem] relative overflow-hidden">
+                    <div id="detail-accent"
+                        class="absolute top-0 right-0 w-32 h-32 opacity-10 rounded-full -mr-16 -mt-16"></div>
+
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h2 id="detail-name" class="text-3xl font-black">Subject Name</h2>
+                            <p id="detail-count-text" class="opacity-60 font-medium">0 of 0 classes attended</p>
+                        </div>
+                        <button onclick="app.deleteCurrentSubject()"
+                            class="text-rose-500 p-3 rounded-2xl hover:bg-rose-500/10 transition">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col items-center mb-10">
+                        <div class="relative w-48 h-48">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle class="text-gray-100 dark:text-gray-800 stroke-current" stroke-width="6" cx="50"
+                                    cy="50" r="42" fill="transparent"></circle>
+                                <circle id="detail-ring" class="text-indigo-600 progress-ring__circle stroke-current"
+                                    stroke-width="6" stroke-linecap="round" cx="50" cy="50" r="42" fill="transparent"
+                                    stroke-dasharray="263.89" stroke-dashoffset="263.89"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span id="detail-percent" class="text-4xl font-black">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="app.markAttendance(true)"
+                            class="bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-2xl font-bold transition shadow-lg shadow-emerald-500/20 active:scale-95">
+                            <i class="fas fa-check-circle mr-2"></i> Attended
+                        </button>
+                        <button onclick="app.markAttendance(false)"
+                            class="bg-rose-500 hover:bg-rose-600 text-white py-4 rounded-2xl font-bold transition shadow-lg shadow-rose-500/20 active:scale-95">
+                            <i class="fas fa-times-circle mr-2"></i> Bunked
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-indigo-600 p-8 rounded-[2.5rem] text-white shadow-2xl shadow-indigo-500/40">
+                        <h3 class="text-xl font-black mb-1">What-If Simulator</h3>
+                        <p class="text-indigo-200 text-sm mb-8 italic">"Predict your future before it happens"</p>
+
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-sm mb-4">
+                                    <span class="font-bold opacity-80">Planned Bunks</span>
+                                    <span id="bunk-slider-val"
+                                        class="bg-white/20 px-3 py-1 rounded-full font-black">0</span>
+                                </div>
+                                <input type="range" id="bunk-slider" min="0" max="10" value="0"
+                                    class="w-full h-2 bg-indigo-400 rounded-lg appearance-none cursor-pointer"
+                                    oninput="app.runSimulator()">
+                            </div>
+
+                            <div class="p-4 bg-white/10 rounded-2xl border border-white/10">
+                                <p class="text-xs uppercase tracking-widest font-bold opacity-60 mb-1">Resulting
+                                    Attendance</p>
+                                <div class="flex items-end gap-2">
+                                    <h4 id="sim-result-percent" class="text-3xl font-black">0%</h4>
+                                    <span id="sim-status"
+                                        class="text-xs font-bold mb-1.5 px-2 py-0.5 rounded bg-emerald-400 text-indigo-900">SAFE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass p-6 rounded-[2rem] border-t-4 border-indigo-600">
+                        <h4 class="font-bold mb-4 opacity-70 flex items-center gap-2">
+                            <i class="fas fa-lightbulb text-yellow-500"></i> Action Plan
+                        </h4>
+                        <p id="action-plan" class="text-sm leading-relaxed font-medium">Keep it up! You're in the safe
+                            zone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-view" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="app.showDashboard()"></div>
+            <div class="glass w-full max-w-md p-8 rounded-[2.5rem] relative z-10 animate-slide-up shadow-2xl">
+                <h2 class="text-2xl font-black mb-6">Track New Subject</h2>
+                <form onsubmit="app.handleAddSubject(event)" class="space-y-4">
+                    <input type="text" id="sub-name" placeholder="Subject Name (e.g. Physics)" required
+                        class="w-full bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl outline-none focus:ring-2 ring-indigo-500 transition">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="number" id="sub-attended" placeholder="Attended" required min="0"
+                            class="w-full bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl outline-none focus:ring-2 ring-indigo-500 transition">
+                        <input type="number" id="sub-total" placeholder="Total" required min="0"
+                            class="w-full bg-gray-100 dark:bg-gray-800 p-4 rounded-2xl outline-none focus:ring-2 ring-indigo-500 transition">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-indigo-600 text-white py-4 rounded-2xl font-black shadow-lg shadow-indigo-500/20 mt-4 transition hover:bg-indigo-700">Add
+                        Subject</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const app = {
+            data: JSON.parse(localStorage.getItem('bunk_v2') || '[]'),
+            currentId: null,
+            isDark: false,
+
+            init() {
+                this.render();
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    this.toggleTheme();
+                }
+            },
+
+            toggleTheme() {
+                this.isDark = !this.isDark;
+                document.documentElement.className = this.isDark ? 'dark' : 'light';
+                document.getElementById('theme-icon').className = this.isDark ? 'fas fa-sun' : 'fas fa-moon';
+            },
+
+            save() {
+                localStorage.setItem('bunk_v2', JSON.stringify(this.data));
+                this.render();
+            },
+
+            showDashboard() {
+                document.getElementById('dashboard-view').classList.remove('hidden');
+                document.getElementById('detail-view').classList.add('hidden');
+                document.getElementById('add-view').classList.add('hidden');
+            },
+
+            showAddSubject() {
+                document.getElementById('add-view').classList.remove('hidden');
+            },
+
+            showDetail(id) {
+                this.currentId = id;
+                document.getElementById('dashboard-view').classList.add('hidden');
+                document.getElementById('add-view').classList.add('hidden');
+                document.getElementById('detail-view').classList.remove('hidden');
+                document.getElementById('bunk-slider').value = 0;
+                this.renderDetail();
+            },
+
+            handleAddSubject(e) {
+                e.preventDefault();
+                const sub = {
+                    id: Date.now(),
+                    name: document.getElementById('sub-name').value,
+                    attended: parseInt(document.getElementById('sub-attended').value),
+                    total: parseInt(document.getElementById('sub-total').value)
+                };
+                this.data.push(sub);
+                this.save();
+                this.showDashboard();
+                e.target.reset();
+            },
+
+            markAttendance(attended) {
+                const sub = this.data.find(s => s.id === this.currentId);
+                sub.total++;
+                if (attended) sub.attended++;
+                this.save();
+                this.renderDetail();
+            },
+
+            deleteCurrentSubject() {
+                if (confirm('Delete this subject?')) {
+                    this.data = this.data.filter(s => s.id !== this.currentId);
+                    this.save();
+                    this.showDashboard();
+                }
+            },
+
+            runSimulator() {
+                const sub = this.data.find(s => s.id === this.currentId);
+                const bunks = parseInt(document.getElementById('bunk-slider').value);
+                document.getElementById('bunk-slider-val').textContent = bunks;
+
+                const newTotal = sub.total + bunks;
+                const newPercent = ((sub.attended / newTotal) * 100).toFixed(1);
+
+                const resEl = document.getElementById('sim-result-percent');
+                const statEl = document.getElementById('sim-status');
+
+                resEl.textContent = `${newPercent}%`;
+                if (newPercent < 75) {
+                    statEl.textContent = 'DANGER';
+                    statEl.className = 'text-xs font-bold mb-1.5 px-2 py-0.5 rounded bg-rose-400 text-white';
+                } else {
+                    statEl.textContent = 'SAFE';
+                    statEl.className = 'text-xs font-bold mb-1.5 px-2 py-0.5 rounded bg-emerald-400 text-indigo-900';
+                }
+            },
+
+            render() {
+                const grid = document.getElementById('subjects-grid');
+                grid.innerHTML = '';
+
+                let globalAtt = 0, globalTot = 0, safeBunks = 0, critCount = 0;
+
+                this.data.forEach((sub, index) => {
+                    const percent = ((sub.attended / sub.total) * 100) || 0;
+                    const color = percent >= 75 ? 'indigo' : 'rose';
+                    const safe = Math.floor((sub.attended / 0.75) - sub.total);
+
+                    globalAtt += sub.attended;
+                    globalTot += sub.total;
+                    if (safe > 0) safeBunks += safe;
+                    if (percent < 75) critCount++;
+
+                    const card = document.createElement('div');
+                    card.className = `subject-card glass p-6 rounded-[2rem] cursor-pointer border-l-8 border-${color}-500 animate-slide-up`;
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.onclick = () => this.showDetail(sub.id);
+                    card.innerHTML = `
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-black text-xl">${sub.name}</h3>
+                            <span class="text-sm font-bold opacity-40">${sub.attended}/${sub.total}</span>
+                        </div>
+                        <div class="flex items-end justify-between">
+                            <div>
+                                <p class="text-3xl font-black text-${color}-500">${percent.toFixed(0)}%</p>
+                                <p class="text-xs font-bold opacity-50 uppercase tracking-tighter">${percent >= 75 ? (safe + ' safe bunks') : 'Critical'}</p>
+                            </div>
+                            <div class="h-10 w-10 rounded-full border-2 border-${color}-500/20 flex items-center justify-center text-${color}-500">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                document.getElementById('global-avg').textContent = globalTot ? ((globalAtt / globalTot) * 100).toFixed(1) + '%' : '0%';
+                document.getElementById('total-safe-bunks').textContent = safeBunks;
+                document.getElementById('critical-count').textContent = critCount;
+                document.getElementById('critical-card').className = critCount > 0 ? 'glass p-6 rounded-3xl flex items-center gap-4 border-b-4 border-rose-500' : 'glass p-6 rounded-3xl flex items-center gap-4';
+            },
+
+            renderDetail() {
+                const sub = this.data.find(s => s.id === this.currentId);
+                const percent = ((sub.attended / sub.total) * 100) || 0;
+                const safe = Math.floor((sub.attended / 0.75) - sub.total);
+
+                document.getElementById('detail-name').textContent = sub.name;
+                document.getElementById('detail-count-text').textContent = `${sub.attended} of ${sub.total} classes attended`;
+                document.getElementById('detail-percent').textContent = percent.toFixed(1) + '%';
+
+                const ring = document.getElementById('detail-ring');
+                const offset = 263.89 - (percent / 100) * 263.89;
+                ring.style.strokeDashoffset = offset;
+                ring.className = `progress-ring__circle stroke-current ${percent >= 75 ? 'text-indigo-600' : 'text-rose-500'}`;
+
+                // Action Plan
+                const plan = document.getElementById('action-plan');
+                if (percent >= 75) {
+                    plan.innerHTML = `You are doing great! You can bunk up to <span class="text-emerald-500 font-black">${safe}</span> more classes while staying above 75%.`;
+                } else {
+                    const needed = Math.ceil((0.75 * sub.total - sub.attended) / 0.25);
+                    plan.innerHTML = `You are in the danger zone. You need to attend the next <span class="text-rose-500 font-black">${needed}</span> classes straight to recover.`;
+                }
+
+                this.runSimulator();
+            }
+        };
+
+        app.init();
+    </script>
+</body>
+
+</html>
+
