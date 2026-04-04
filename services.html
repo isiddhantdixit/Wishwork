@@ -1,0 +1,1333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Digital Citizen Service Portal</title>
+    <link rel="stylesheet" href="services.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <p>Loading Services...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <span>Digital Citizen Portal</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="services.html" class="nav-link active dropdown-toggle">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#identity" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-id-card"></i></div>
+                            <span>Identity Services</span>
+                        </a>
+                        <a href="#transport" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-car"></i></div>
+                            <span>Transport</span>
+                        </a>
+                        <a href="#health" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-heartbeat"></i></div>
+                            <span>Healthcare</span>
+                        </a>
+                        <a href="#education" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <span>Education</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="schemes.html" class="nav-link dropdown-toggle">
+                        Schemes <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="schemes.html" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <span>Financial Aid</span>
+                        </a>
+                        <a href="schemes.html" class="dropdown-item">
+                            <div class="dropdown-icon"><i class="fas fa-home"></i></div>
+                            <span>Housing</span>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="announcements.html" class="nav-link">News</a></li>
+                <li><a href="help.html" class="nav-link">Help</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="search-btn" id="searchBtn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="dashboard.html" class="btn btn-primary btn-sm">Login</a>
+            </div>
+        </div>
+        
+        <!-- Search Overlay -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" placeholder="Search services..." id="searchInput">
+                <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Services</span>
+            </div>
+            <h1 class="page-title">Government Services</h1>
+            <p class="page-subtitle">Access 100+ digital services designed for your convenience</p>
+            
+            <!-- Service Categories Filter -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All Services</button>
+                <button class="filter-btn" data-filter="identity">Identity</button>
+                <button class="filter-btn" data-filter="transport">Transport</button>
+                <button class="filter-btn" data-filter="health">Health</button>
+                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="finance">Finance</button>
+                <button class="filter-btn" data-filter="legal">Legal</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Grid Section -->
+    <section class="services-section" id="servicesSection">
+        <div class="container">
+            <!-- Identity Services -->
+            <div class="service-category" id="identity" data-category="identity">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Identity & Civil Registration</h2>
+                        <p>Essential documents and identity services for every citizen</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Passport Service -->
+                    <article class="service-card-large">
+                        <div class="service-image">
+                            <div class="service-icon-large">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge popular">Most Popular</span>
+                                <span class="badge online">100% Online</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Passport Services</h3>
+                            <p>Apply for new passport, renewal, re-issue, or update personal details. Track application status in real-time.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Tatkal processing available</li>
+                                <li><i class="fas fa-check"></i> Home delivery option</li>
+                                <li><i class="fas fa-check"></i> Document upload portal</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 3-7 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹1,500 - ₹3,500
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Required Documents</h4>
+                                    <ul>
+                                        <li>Birth Certificate</li>
+                                        <li>Address Proof (Aadhaar/Utility Bill)</li>
+                                        <li>Photo ID Proof</li>
+                                        <li>Passport size photographs</li>
+                                    </ul>
+                                    <h4>Eligibility</h4>
+                                    <p>All citizens above 18 years. Minors require guardian consent.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Birth Certificate -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge free">Free</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Birth Certificate</h3>
+                            <p>Register births, download certificates, make corrections, and obtain certified copies online.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Same-day registration</li>
+                                <li><i class="fas fa-check"></i> Digital certificate download</li>
+                                <li><i class="fas fa-check"></i> Correction facility</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Same day
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Register Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Required Information</h4>
+                                    <ul>
+                                        <li>Hospital/Institution details</li>
+                                        <li>Parent's ID proof</li>
+                                        <li>Birth details (date, time, place)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Aadhaar Services -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge essential">Essential</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Aadhaar Services</h3>
+                            <p>Update demographics, biometric authentication, virtual ID generation, and address validation.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Online demographic update</li>
+                                <li><i class="fas fa-check"></i> Virtual ID generation</li>
+                                <li><i class="fas fa-check"></i> Authentication history</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Instant - 7 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free - ₹50
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Update Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Services Available</h4>
+                                    <ul>
+                                        <li>Name/Address/DOB Update</li>
+                                        <li>Mobile/Email Update</li>
+                                        <li>Biometric Update (at center)</li>
+                                        <li>Aadhaar PVC Card Order</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Transport Services -->
+            <div class="service-category" id="transport" data-category="transport">
+                <div class="category-header">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Transport & Driving</h2>
+                        <p>Vehicle registration, driving licenses, and transport permits</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Driving License -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-id-card-alt"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge trending">Trending</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Driving License</h3>
+                            <p>Learner's license, permanent license, renewal, duplicate, and international driving permit.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Online test booking</li>
+                                <li><i class="fas fa-check"></i> Digital license delivery</li>
+                                <li><i class="fas fa-check"></i> Slot rescheduling</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 7-15 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹200 - ₹1,000
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Application Types</h4>
+                                    <ul>
+                                        <li>Learner's License (LL)</li>
+                                        <li>Permanent Driving License (DL)</li>
+                                        <li>Renewal after expiry</li>
+                                        <li>Duplicate DL</li>
+                                        <li>International Driving Permit (IDP)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Vehicle Registration -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge new">New</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Vehicle Registration</h3>
+                            <p>New vehicle registration, ownership transfer, RC renewal, and fancy number booking.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Online RC download</li>
+                                <li><i class="fas fa-check"></i> Hypothecation removal</li>
+                                <li><i class="fas fa-check"></i> Address change</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 3-10 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Varies by vehicle
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Register Vehicle
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Required Documents</h4>
+                                    <ul>
+                                        <li>Sale Certificate (Form 21)</li>
+                                        <li>Road Worthiness Certificate</li>
+                                        <li>Insurance Certificate</li>
+                                        <li>Pollution Under Control (PUC)</li>
+                                        <li>Address Proof</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Permit Services -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Permit Services</h3>
+                            <p>National permits, state permits, temporary permits, and tourist vehicle permits.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> All India Permit</li>
+                                <li><i class="fas fa-check"></i> Goods Carrier Permit</li>
+                                <li><i class="fas fa-check"></i> Stage Carriage Permit</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 5-15 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹1,000 - ₹5,000
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply for Permit
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Permit Types</h4>
+                                    <ul>
+                                        <li>Contract Carriage Permit</li>
+                                        <li>Stage Carriage Permit</li>
+                                        <li>Private Service Vehicle Permit</li>
+                                        <li>Goods Vehicle Permit</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Health Services -->
+            <div class="service-category" id="health" data-category="health">
+                <div class="category-header">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Healthcare Services</h2>
+                        <p>Health insurance, medical registrations, and emergency services</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Health Insurance -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge recommended">Recommended</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Health Insurance Registration</h3>
+                            <p>Enroll in government health schemes, claim insurance, and find empaneled hospitals.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Cashless treatment</li>
+                                <li><i class="fas fa-check"></i> Family coverage</li>
+                                <li><i class="fas fa-check"></i> Pre-existing disease cover</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Instant
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free - ₹500/year
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Enroll Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Coverage Includes</h4>
+                                    <ul>
+                                        <li>Secondary and tertiary care</li>
+                                        <li>Pre and post hospitalization</li>
+                                        <li>Day care procedures</li>
+                                        <li>Newborn & maternity benefits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Doctor Registration -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Medical Practitioner Registration</h3>
+                            <p>Register as a medical practitioner, renew license, and verify credentials.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Digital ID card</li>
+                                <li><i class="fas fa-check"></i> Online verification</li>
+                                <li><i class="fas fa-check"></i> CME tracking</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 15-30 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹2,000 - ₹5,000
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Register
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Eligibility</h4>
+                                    <ul>
+                                        <li>MBBS/BDS/AYUSH degree</li>
+                                        <li>Internship completion</li>
+                                        <li>Clearance from medical council</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Hospital Services -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Hospital Empanelment</h3>
+                            <p>Register hospitals and clinics under government schemes, update facility details.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Cashless facility</li>
+                                <li><i class="fas fa-check"></i> Claim management</li>
+                                <li><i class="fas fa-check"></i> Quality assessment</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 30-45 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Application based
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Requirements</h4>
+                                    <ul>
+                                        <li>Hospital registration certificate</li>
+                                        <li>Infrastructure compliance</li>
+                                        <li>Staff qualification proof</li>
+                                        <li>Equipment list</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Education Services -->
+            <div class="service-category" id="education" data-category="education">
+                <div class="category-header">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Education Services</h2>
+                        <p>Scholarships, certificates, and educational resources</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Scholarship -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge popular">High Demand</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>National Scholarship Portal</h3>
+                            <p>Apply for pre-matric, post-matric, and merit-based scholarships. Track disbursement status.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Multiple schemes</li>
+                                <li><i class="fas fa-check"></i> Direct benefit transfer</li>
+                                <li><i class="fas fa-check"></i> Renewal facility</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 30-60 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Available Schemes</h4>
+                                    <ul>
+                                        <li>Pre-Matric Scholarship</li>
+                                        <li>Post-Matric Scholarship</li>
+                                        <li>Merit-cum-Means Scholarship</li>
+                                        <li>Top Class Education Scheme</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Marksheet Verification -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Certificate Verification</h3>
+                            <p>Verify educational certificates, obtain duplicate marksheets, and apply for corrections.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Digital verification</li>
+                                <li><i class="fas fa-check"></i> QR code authentication</li>
+                                <li><i class="fas fa-check"></i> Bulk verification</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 7-14 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹100 - ₹500
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Verify Now
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Services</h4>
+                                    <ul>
+                                        <li>Degree verification</li>
+                                        <li>Marksheet duplicate</li>
+                                        <li>Migration certificate</li>
+                                        <li>Transcript issuance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- School Registration -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-school"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Institution Registration</h3>
+                            <p>Register schools and colleges, obtain NOCs, and update institution details.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Online NOC application</li>
+                                <li><i class="fas fa-check"></i> Affiliation services</li>
+                                <li><i class="fas fa-check"></i> Recognition status</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 30-90 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> As per norms
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Register
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Registration Types</h4>
+                                    <ul>
+                                        <li>New School Registration</li>
+                                        <li>College Affiliation</li>
+                                        <li>University Recognition</li>
+                                        <li>Course Approval</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Finance Services -->
+            <div class="service-category" id="finance" data-category="finance">
+                <div class="category-header">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Tax & Finance</h2>
+                        <p>Income tax, GST, and financial compliance services</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Tax Filing -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge urgent">Seasonal</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Income Tax Filing</h3>
+                            <p>File ITR, check refund status, verify Form 26AS, and respond to tax notices.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Pre-filled returns</li>
+                                <li><i class="fas fa-check"></i> E-verification</li>
+                                <li><i class="fas fa-check"></i> Refund tracking</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Instant - 30 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free (DIY)
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> File ITR
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>ITR Forms</h4>
+                                    <ul>
+                                        <li>ITR-1 (Sahaj) - Salaried</li>
+                                        <li>ITR-2 - Capital gains</li>
+                                        <li>ITR-3 - Business income</li>
+                                        <li>ITR-4 (Sugam) - Presumptive</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- GST Services -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>GST Services</h3>
+                            <p>GST registration, return filing, payment, and compliance management.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> New registration</li>
+                                <li><i class="fas fa-check"></i> Return filing (GSTR-1, 3B)</li>
+                                <li><i class="fas fa-check"></i> E-way bill generation</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 3-7 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free registration
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> GST Portal
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Compliance Calendar</h4>
+                                    <ul>
+                                        <li>GSTR-1: Monthly/Quarterly</li>
+                                        <li>GSTR-3B: Monthly</li>
+                                        <li>Annual Return (GSTR-9)</li>
+                                        <li>Reconciliation Statement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PAN Card -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-id-badge"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>PAN Card Services</h3>
+                            <p>New PAN application, corrections, duplicate, and linking with Aadhaar.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Instant e-PAN</li>
+                                <li><i class="fas fa-check"></i> Aadhaar linking</li>
+                                <li><i class="fas fa-check"></i> Correction facility</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Instant - 15 days
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹50 - ₹1,000
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Apply PAN
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Application Types</h4>
+                                    <ul>
+                                        <li>New PAN (Form 49A)</li>
+                                        <li>Changes/Correction</li>
+                                        <li>Reprint PAN card</li>
+                                        <li>e-KYC services</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Legal Services -->
+            <div class="service-category" id="legal" data-category="legal">
+                <div class="category-header">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #64748b 0%, #475569 100%);">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>Legal & Judicial</h2>
+                        <p>Case status, legal aid, and documentation services</p>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Court Services -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #64748b 0%, #475569 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Court Case Status</h3>
+                            <p>Track case status, view cause lists, and access court orders online.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Multi-court search</li>
+                                <li><i class="fas fa-check"></i> Digital court orders</li>
+                                <li><i class="fas fa-check"></i> Cause list access</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Real-time
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-search"></i> Check Status
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Courts Covered</h4>
+                                    <ul>
+                                        <li>Supreme Court</li>
+                                        <li>High Courts</li>
+                                        <li>District Courts</li>
+                                        <li>Tribunals</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Legal Aid -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="service-badges">
+                                <span class="badge free">Pro Bono</span>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Legal Aid Services</h3>
+                            <p>Free legal assistance for eligible citizens, find advocates, and access legal resources.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Free legal advice</li>
+                                <li><i class="fas fa-check"></i> Advocate appointment</li>
+                                <li><i class="fas fa-check"></i> Document drafting</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> 24-48 hours
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> Free for eligible
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Request Aid
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Eligibility</h4>
+                                    <ul>
+                                        <li>Income below ₹3 Lakh p.a.</li>
+                                        <li>Women/Children/Seniors</li>
+                                        <li>Disabled persons</li>
+                                        <li>SC/ST beneficiaries</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Notary -->
+                    <article class="service-card-large">
+                        <div class="service-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                            <div class="service-icon-large">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>e-Notary Services</h3>
+                            <p>Online notarization, affidavit creation, and document attestation.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Digital notarization</li>
+                                <li><i class="fas fa-check"></i> Stamp paper purchase</li>
+                                <li><i class="fas fa-check"></i> Document verification</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="processing-time">
+                                    <i class="fas fa-clock"></i> Same day
+                                </span>
+                                <span class="service-fee">
+                                    <i class="fas fa-tag"></i> ₹50 - ₹500
+                                </span>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Notarize
+                                </a>
+                                <button class="btn btn-outline btn-sm" onclick="toggleDetails(this)">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </button>
+                            </div>
+                            <div class="service-details" style="display: none;">
+                                <div class="details-content">
+                                    <h4>Documents</h4>
+                                    <ul>
+                                        <li>Affidavits</li>
+                                        <li>Power of Attorney</li>
+                                        <li>Agreement deeds</li>
+                                        <li>Self-declaration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Bar -->
+    <section class="quick-links-bar">
+        <div class="container">
+            <h3>Popular Searches</h3>
+            <div class="quick-tags">
+                <a href="#" class="quick-tag">Passport renewal</a>
+                <a href="#" class="quick-tag">Driving license test</a>
+                <a href="#" class="quick-tag">Birth certificate download</a>
+                <a href="#" class="quick-tag">PAN card correction</a>
+                <a href="#" class="quick-tag">Scholarship status</a>
+                <a href="#" class="quick-tag">ITR filing last date</a>
+                <a href="#" class="quick-tag">Aadhaar update</a>
+                <a href="#" class="quick-tag">Vehicle registration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help CTA -->
+    <section class="help-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="cta-text">
+                    <h2>Need Help Finding a Service?</h2>
+                    <p>Our support team is available 24/7 to assist you with service selection and application process.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="help.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-question-circle"></i> Visit Help Center
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                        <i class="fas fa-phone"></i> Call Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <span>Digital Citizen Portal</span>
+                    </a>
+                    <p>Empowering citizens through digital governance. Access government services anytime, anywhere.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#identity" class="footer-link">Identity Services</a></li>
+                        <li><a href="#transport" class="footer-link">Transport</a></li>
+                        <li><a href="#health" class="footer-link">Healthcare</a></li>
+                        <li><a href="#education" class="footer-link">Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="help.html" class="footer-link">Help Center</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Feedback</a></li>
+                        <li><a href="#" class="footer-link">Service Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Use</a></li>
+                        <li><a href="#" class="footer-link">Accessibility</a></li>
+                        <li><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Digital Citizen Service Portal. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart" style="color: var(--secondary-red);"></i> for Citizens</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Search Overlay
+        const searchBtn = document.getElementById('searchBtn');
+        const searchOverlay = document.getElementById('searchOverlay');
+        const searchClose = document.getElementById('searchClose');
+        const searchInput = document.getElementById('searchInput');
+
+        searchBtn.addEventListener('click', () => {
+            searchOverlay.classList.add('active');
+            searchInput.focus();
+        });
+
+        searchClose.addEventListener('click', () => {
+            searchOverlay.classList.remove('active');
+        });
+
+        // Close search on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchOverlay.classList.remove('active');
+            }
+        });
+
+        // Filter Tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const serviceCategories = document.querySelectorAll('.service-category');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                serviceCategories.forEach(category => {
+                    if (filter === 'all' || category.getAttribute('data-category') === filter) {
+                        category.style.display = 'block';
+                        category.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        category.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Toggle Service Details
+        function toggleDetails(btn) {
+            const card = btn.closest('.service-card-large');
+            const details = card.querySelector('.service-details');
+            const icon = btn.querySelector('i');
+            
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                details.style.animation = 'slideDown 0.3s ease-out';
+                btn.innerHTML = '<i class="fas fa-times"></i> Close';
+                btn.classList.add('active');
+            } else {
+                details.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-info-circle"></i> Details';
+                btn.classList.remove('active');
+            }
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card-large, .category-header').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add animation styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .service-card-large, .category-header {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            
+            .service-card-large.animate-in, .category-header.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    max-height: 0;
+                }
+                to {
+                    opacity: 1;
+                    max-height: 500px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
